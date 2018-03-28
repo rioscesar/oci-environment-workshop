@@ -3,9 +3,9 @@ import re
 warPath = '/u01/oracle/HelloWorldWebService.war'
 appName = 'mytestapplication'
 
-weblogicUrl = '129.157.177.46:7002'
-userName = 'welcome'
-password = 'Devops_123'
+weblogicUrl = 't3://172.17.0.2:7001'
+userName = 'weblogic'
+password = 'welcome1'
 
 connect(userName, password, weblogicUrl)
  
@@ -16,4 +16,3 @@ if len(appList) >= 1:
  
 deploy(appName, path = warPath, retireTimeout = -1, upload = 'True')
 exit()
-

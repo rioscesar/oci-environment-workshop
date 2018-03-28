@@ -14,7 +14,7 @@ variable "password" {}
 variable "domain" {}
 variable "tenancy" {}
 variable "object_storage_user" {}
-variable "swift_password" {}
+#variable "swift_password" {}
 
 ############################### Compute Configuration #################################
 
@@ -29,6 +29,13 @@ variable "instance_shape" {
 }
 variable "image_ocid" {
   default="ocid1.image.oc1.iad.aaaaaaaaafmyat7i5s7ae3aylwtvmt7v4dw4yy2thgzaqlbjzoxngrjg54xq"
+}
+
+variable "DBShape" {
+  default="VM.Standard1.2"
+}
+variable "JCSShape" {
+  default="VM.Standard1.1"
 }
 
 ############################ VCN Configuration #######################################
