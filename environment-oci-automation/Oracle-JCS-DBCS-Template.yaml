@@ -1,6 +1,6 @@
 ---
   template: 
-    templateName: JCS-DBCS-Template-megha-script5
+    templateName: JCS-DBCS-Template
     templateVersion: 1.2.9
     templateDescription: "Provisions a Stack composed of Java Cloud Service and Database Cloud Service instances using Oracle Storage Cloud Service. **WARNING** You will be billed for the Cloud resources created if you create a Cloud Stack from this template"
     parameters: 

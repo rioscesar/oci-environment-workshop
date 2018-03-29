@@ -51,7 +51,6 @@ resource "null_resource" "app-config" {
       private_key = "${var.ssh_private_key}"
     }
 
-    # todo: need to test this further 
     inline = [
       "sleep 1m",		
       "sudo docker exec -it -u root wlsadmin wlst /u01/oracle/deploy_app.py"

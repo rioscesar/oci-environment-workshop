@@ -14,6 +14,7 @@ variable "password" {}
 variable "domain" {}
 variable "tenancy" {}
 variable "object_storage_user" {}
+
 #variable "swift_password" {}
 
 ############################### Compute Configuration #################################
@@ -25,17 +26,23 @@ variable "compute_label" {
   default="devops-instance"
 }
 variable "instance_shape" {
-  default="VM.Standard1.2"
+  default="VM.Standard2.1"
 }
 variable "image_ocid" {
   default="ocid1.image.oc1.iad.aaaaaaaaafmyat7i5s7ae3aylwtvmt7v4dw4yy2thgzaqlbjzoxngrjg54xq"
 }
 
 variable "DBShape" {
-  default="VM.Standard1.2"
+  default="VM.Standard1.1"
 }
 variable "JCSShape" {
-  default="VM.Standard1.1"
+  default="VM.Standard2.1"
+}
+variable "SOAShape" {
+  default="VM.Standard1.2"
+}
+variable "OTDShape" {
+  default="VM.Standard1.2"
 }
 
 ############################ VCN Configuration #######################################
@@ -65,6 +72,7 @@ variable "policy_desc" {
 }
 
 ############################ Object Storage and Swift Password ##############################
+
 variable "swift_password_description" {
   default="Ojbect Storage password for PaaS"
 }
@@ -87,8 +95,10 @@ variable "DBEdition" {
     default = "ENTERPRISE_EDITION"
 }
 variable "DBAdminPassword" {
-    default = "BEstrO0ng_#11"
+    default = "Devops_123"
 }
+
+# OracleDB SID 
 variable "DBName" {
     default = "aTFdb"
 }

@@ -5,7 +5,6 @@ import sys
 import requests
 import pprint
 import time
-# from account_info import AccountInfo
 
 class StackManager():
     """ Class to do operations on Stackmanager """
@@ -15,10 +14,6 @@ class StackManager():
         self.password = password
         self.domain_name = domain_name
         self.DEBUG = DEBUG
-        # account_info = AccountInfo(self.username, self.password, self.domain_name, self.DEBUG)
-        # self.rest_url = account_info.get_jcs_rest_url()
-        # print ("rest url is: --------------------------------------------------------------")
-        # print (self.rest_url)
     
     def view_template(self):
         '''To view existing templates'''
@@ -86,8 +81,14 @@ class StackManager():
         time.sleep(30)
 
     def create_stack(self,stack_name, template_name):
-        """To create SOA Stack"""
+        """To create JCS Stack"""
 
+        parameters = {}
+        with open("jcs.json", 'r') as f:
+            parameters = json.load(f)
+            
+        print("JCS Parameters are: ")
+        print (parameters) 
         if self.DEBUG:
             print("**************************************************************************")
             print ("Inside create function for JCS Stack ")
@@ -96,10 +97,8 @@ class StackManager():
         files = {
             'name' : "%s" %stack_name,
             'template': "%s" % template_name,
-            # 'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\",\"stackRegion.region\":\"us-ashburn-1\",\"stackRegion.availabilityDomain\":\"SyHU:US-ASHBURN-AD-2\",\"dbBackupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014412/TestDBBucket\", \"backupStorageUser\":\"gse-admin_ww@oracle.com\", \"backupStoragePassword\": \"_oF.f)I}0AEhfVxX.8.Q\",\"stackRegion.subnet\":\"Public Subnet SyHU:US-ASHBURN-AD-2\" }"
-            # 'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\",\"stackRegion.region\":\"us-ashburn-1\",\"stackRegion.availabilityDomain\":\"yKpP:US-ASHBURN-AD-2\",\"dbBackupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014412/JCS-Bucket\", \"backupStorageUser\":\"gse-admin_ww@oracle.com\", \"backupStoragePassword\": \"Dgw.EplvawC0_-NAJEa(\",\"stackRegion.subnet\":\"Public Subnet yKpP:US-ASHBURN-AD-2\" }"
-            # 'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\",\"sRegion\":\"us-ashburn-1\",\"availabilityDomain\":\"PTvA:US-ASHBURN-AD-3\",\"dbBackupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00013851/myJCSbucket\", \"backupStorageUser\":\"gse-admin_ww@oracle.com\", \"backupStoragePassword\": \"A+&ks4jCb(p8v}7m}DkC\",\"subnet\":\"Public Subnet PTvA:US-ASHBURN-AD-3\" }"
-            'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\",\"sRegion\":\"us-ashburn-1\",\"availabilityDomain\":\"Rewm:US-ASHBURN-AD-2\",\"dbBackupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014411/myJCSbucket\", \"backupStorageUser\":\"gse-admin_ww@oracle.com\", \"backupStoragePassword\": \"3Q#m>8y!HL61hv1Pd-NH\",\"subnet\":\"ocid1.subnet.oc1.iad.aaaaaaaaka62o2lrahypjca2bqwipjldonecsijezqlqduwpobah5isqrxha\",\"dbComputeShape\":\"VM.Standard1.1\", \"wlComputeShape\":\"VM.Standard1.1\"}"
+            'parameterValues' : "{\"publicKeyText\":\""+parameters["publicKeyText"]+"\",\"commonPwd\":\""+parameters["commonPwd"]+"\",\"sRegion\":\""+parameters["sRegion"]+"\",\"availabilityDomain\":\""+parameters["availabilityDomain"]+"\",\"dbBackupStorageContainer\":\""+parameters["dbBackupStorageContainer"]+"\", \"backupStorageUser\":\""+parameters["backupStorageUser"]+"\", \"backupStoragePassword\": \""+parameters["backupStoragePassword"]+"\",\"subnet\":\""+parameters["subnet"]+"\",\"dbComputeShape\":\""+parameters["dbComputeShape"]+"\", \"wlComputeShape\":\""+parameters["wlComputeShape"]+"\"}"
+            
             }
         ct = "multipart/form-data"
         url = "https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/"+self.domain_name+"/services/stack/instances"
@@ -131,13 +130,13 @@ class StackManager():
 
     def create_soa_stack(self,stack_name, template_name):
         """To create SOA Stack"""
-        #curl -i -X POST -u cloud.admin:hOMEly@7CAnAry \
-        # -H "Content-Type:multipart/form-data" \
-        # -H "X-ID-TENANT-NAME:idcs-2dcb6cc96da14fbe9e759ca6938c16e7" \
-        # -F "name=myStack" \
-        # -F "template=mytemplatemodified" \
-        # -F 'parameterValues={"commonPwd":"Alpha2018_", "publicKeyText":"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA+yhdeLhdoZRtn7z2/2yjApulcmghQbure8n4rHCIOhWG+8yfVapEtwPkIDaxkVUimhU8hU32NdLPUBNpftNWsXrGL1yMug6NPgULoOd2lP+v+jtyJcUzk0hitAuG+wS62HEFmOvvZ8mGeYe20ZQ5ZrB1mUevrbNLYm7prb9ef/wCxONNGi+KjwlMOJpir2qEkM2cIcf+SP5aI2Q/IcV5wEGrudT06P2RxssJIp4ID7mTb+EcdI78NAOGb8rb0ak4zKLPfqrli9MuJYy9pSIxuc3ggNrdpAU/mAVS+1VL9N+86mOSUH5RkLRc847pFytZ3tpzlPOE/f0qhFISXHmleQ== rsa-key-20180313", "backupStorageContainer":{"cloudStorageContainer":"https://Storage-d71674de226942fb8afcead78d16bdc4.us.storage.oraclecloud.com/v1/Storage-d71674de226942fb8afcead78d16bdc4/StorageName","cloudStorageUser":"cloud.admin","cloudStoragePassword":"hOMEly@7CAnAry"}}' \
-        # https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/idcs-2dcb6cc96da14fbe9e759ca6938c16e7/services/stack/instances
+        parameters = {}
+        with open("soa.json", 'r') as f:
+            parameters = json.load(f)
+            
+        print("SOA Parameters are: ")
+        print (parameters) 
+        
         if self.DEBUG:
             print("**************************************************************************")
             print ("Inside create function for SOA Stack ")
@@ -145,14 +144,11 @@ class StackManager():
         files = {
             'name' : "%s" %stack_name,
             'template': "%s" % template_name,
-            # 'parameterValue' : '{\\"publicKeyText\\":\\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp\\/pjNRyAGlR\\/\\/tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG\\/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1\\/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\\",\\"commonPwd\\":\\"Devops_123\\",\\"backupStorageContainer\\":{\\"cloudStorageContainer\\":\\"https:\\\\\\/\\/Storage-d71674de226942fb8afcead78d16bdc4.us.storage.oraclecloud.com\\\\\\/v1\\\\\\/Storage-d71674de226942fb8afcead78d16bdc4\\\\\\/StorageName\\",\\"cloudStorageUser\\":\\"cloud.admin\\",\\"cloudStoragePassword\\":\\"hOMEly@7CAnAry\\"}'
-            # 'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\"},\"sRegion\":\"us-ashburn-1\",\"availabilityDomain\":\"Rewm:US-ASHBURN-AD-2\",\"backupStorageContainer\":{\"cloudStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014411/myJCSbucket\", \"cloudStorageUser\":\"gse-admin_ww@oracle.com\", \"cloudStoragePassword\": \"3Q#m>8y!HL61hv1Pd-NH\"},\"subnet\":\"ocid1.subnet.oc1.iad.aaaaaaaaka62o2lrahypjca2bqwipjldonecsijezqlqduwpobah5isqrxha\"}"
-            # 'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\"},\"sRegion\":\"us-ashburn-1\",\"availabilityDomain\":\"Rewm:US-ASHBURN-AD-2\",\"subnet\":\"ocid1.subnet.oc1.iad.aaaaaaaaka62o2lrahypjca2bqwipjldonecsijezqlqduwpobah5isqrxha\"}"
-            'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\",\"sRegion\":\"us-ashburn-1\",\"availabilityDomain\":\"Rewm:US-ASHBURN-AD-3\",\"backupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014411/myJCSbucket\",\"dbBackupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014411/myDBCSbucket\", \"backupStorageUser\":\"gse-admin_ww@oracle.com\", \"backupStoragePassword\": \"3Q#m>8y!HL61hv1Pd-NH\",\"subnet\":\"ocid1.subnet.oc1.iad.aaaaaaaavgbqkf5aiq6oodhfxv244aqkq6tpzt5ub4pu2bqmb6ru5bcylttq\",\"dbComputeShape\":\"VM.Standard1.1\", \"wlComputeShape\":\"VM.Standard1.2\", \"wlComputeShape2\":\"VM.Standard1.1\"}"
-            # 'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\",\"sRegion\":\"us-ashburn-1\",\"availabilityDomain\":\"uolW:US-ASHBURN-AD-3\",\"backupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014605/myJCSbucket\",\"dbBackupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00014605/myDBCSbucket\", \"backupStorageUser\":\"gse-admin_ww@oracle.com\", \"backupStoragePassword\": \"X8nTZ&M!&OK1MC3$zfwJ\",\"subnet\":\"ocid1.subnet.oc1.iad.aaaaaaaai2tqdaxmewxzsb26topp5pqcunoblxqijwv5k3g75pkien2jwd7q\",\"dbComputeShape\":\"VM.Standard1.1\", \"wlComputeShape\":\"VM.Standard1.2\", \"wlComputeShape2\":\"VM.Standard2.1\"}"
-            # 'parameterValues' : "{\"publicKeyText\":\"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAguhaYjpszwr6VHzQiZzRx1YybExmpgWWmQaYRtmJ8bk7IGkmmBrlRqOkRY8T0LXyJ42+xZWn9R0hY656Xp/pjNRyAGlR//tTB0wBbP30ZrkdltWfo59AAWrxLjDpEs4AcgYG/7clcv6vLnlX5bF7NGQ3FK0zxpC+MFdjthnzztfdrFjxN4UsSvE1/MCZNWqn8jXyWMdxu0AzTaWKAH6jTFCmuiVUHtFp6W5l1ut7bfJvjPq73CNmrbJtcRHUy+Kwv2mHvghjcu9XMK2V+3u829fTRhG6dBQlH9d6soVHxpJ1fb06MwY8+JRLNUhSZyA4gaXKY3YSkZw5WIuluLbPsQ== rsa-key-20180221\",\"commonPwd\":\"Devops_123\",\"dbBackupStorageContainer\":\"https://swiftobjectstorage.us-ashburn-1.oraclecloud.com/v1/gse00013851/JCSBucket\", \"backupStorageUser\":\"gse-admin_ww@oracle.com\", \"backupStoragePassword\": \"A+&ks4jCb(p8v}7m}DkC\"}"
-        }            
-        # ct = "multipart/form-data"
+            'parameterValues' : "{\"publicKeyText\":\""+parameters["publicKeyText"]+"\",\"commonPwd\":\""+parameters["commonPwd"]+"\",\"sRegion\":\""+parameters["sRegion"]+"\",\"availabilityDomain\":\""+parameters["availabilityDomain"]+"\",\"backupStorageContainer\":\""+parameters["backupStorageContainer"]+"\",\"dbBackupStorageContainer\":\""+parameters["dbBackupStorageContainer"]+"\", \"backupStorageUser\":\""+parameters["backupStorageUser"]+"\", \"backupStoragePassword\": \""+parameters["backupStoragePassword"]+"\",\"subnet\":\""+parameters["subnet"]+"\",\"dbComputeShape\":\""+parameters["dbComputeShape"]+"\", \"wlComputeShape\":\""+parameters["wlComputeShape"]+"\", \"wlComputeShape2\":\""+parameters["wlComputeShape2"]+"\"}"
+        }  
+
+        print (files)          
+        ct = "multipart/form-data"
         url = "https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/"+self.domain_name+"/services/stack/instances"
         if self.DEBUG:
             print ("URL is : " + url)
@@ -235,10 +231,9 @@ class StackManager():
                 time.sleep(30)
             if self.DEBUG:
                 print (status)
-        #curl -i -X POST -u cloud.admin:pLUCky@3FlOor -H "X-ID-TENANT-NAME:gse00013027" https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/gse00013027/services/stack/instances/DevOpsStack1/start
 
     def check_status(self, job_id):
-        # curl -i -X GET -u cloud.admin:hOMEly@7CAnAry -H "X-ID-TENANT-NAME:idcs-2dcb6cc96da14fbe9e759ca6938c16e7" https://psm.us.oraclecloud.com/paas/api/v1.1/activitylog/idcs-2dcb6cc96da14fbe9e759ca6938c16e7/stack/job/23370043
+        """Checks the status as per JOB ID"""
         url = "https://psm.us.oraclecloud.com/paas/api/v1.1/activitylog/"+ self.domain_name+"/stack/job/"+job_id
         headers = {
             'X-ID-TENANT-NAME': '%s' %self.domain_name
@@ -272,9 +267,10 @@ class StackManager():
             except:
                 print("JSON status not exists. Stack is not created.")
 
-    def view_jcs(self):
+    def view_jcs(self, jcs_instance_name):
         """To view JCS  instances"""
-        url = "https://jaas.oraclecloud.com/paas/api/v1.1/instancemgmt/"+self.domain_name+"/services/jaas/instances/DevOpsStack1JCS"
+
+        url = "https://jaas.oraclecloud.com/paas/api/v1.1/instancemgmt/"+self.domain_name+"/services/jaas/instances/"+jcs_instance_name
         if self.DEBUG:
             print("**************************************************************************")
             print ("Validating JCS ")
@@ -290,7 +286,7 @@ class StackManager():
             print ("Response Status is : " + str(request.status_code))
             print("----------------------------------------------------")
             print ("Response body is: ")
-            # pprint.pprint(request.text)
+            pprint.pprint(request.text)
             print("----------------------------------------------------")
             print ("Response header is: ")
             pprint.pprint(request.headers)
@@ -307,6 +303,8 @@ class StackManager():
                 print("JSON status not exists. Stack is not created.")
 
     def view_jcs_access_rules(self):
+        """To view JCS access rule"""
+
         url = "https://jaas.oraclecloud.com/paas/api/v1.1/instancemgmt/"+self.domain_name+"/services/jaas/instances/DevOpsStack1JCS/accessrules"
         if self.DEBUG:
             print("**************************************************************************")
@@ -349,7 +347,7 @@ def main(args):
         if args.service == "jcs":    
             print ("Inside view jcs")
             # stackmanager.view_stack()
-            # stackmanager.view_jcs()
+            stackmanager.view_jcs("Test")
             # stackmanager.view_jcs_access_rules()
         
         if args.service == "soa":
@@ -361,13 +359,12 @@ def main(args):
 
         if args.service == "jcs":                
             stackmanager.create_template("Oracle-JCS-DBCS-Template.yaml")
-            stackmanager.create_stack("MeghaStackTestScript5", "JCS-DBCS-Template-megha-script5")
+            stackmanager.create_stack("JCSDBCSStack", "JCS-DBCS-Template")
             
-        # stackmanager.create_soa_stack("DevOpsStack1", "JCS-DBCS-Template")
-
         if args.service == "soa":
+            
             stackmanager.create_template("SOA-FROM-JCS-Final.yaml")
-            stackmanager.create_soa_stack("SOAFROMJCSFinal7", "SOA-FROM-JCS-Final7")
+            stackmanager.create_soa_stack("SOAStack", "SOA-Template")
             
 
     if args.action == "start":    

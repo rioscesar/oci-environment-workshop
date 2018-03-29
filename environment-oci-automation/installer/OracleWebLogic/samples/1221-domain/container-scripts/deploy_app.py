@@ -1,6 +1,6 @@
 import re
  
-warPath = '/u01/oracle/HelloWorldWebService.war'
+warPath = '/u01/oracle/LibertyInsurance-WebServiceApp-context-root.war'
 appName = 'mytestapplication'
 
 weblogicUrl = 't3://172.17.0.2:7001'
