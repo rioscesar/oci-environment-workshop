@@ -23,9 +23,6 @@ export TF_VAR_domain="idcs-d0b3ef5f88954f9fb37302f2149f2416"
 export TF_VAR_tenancy="gse00013851"
 #Enter Object Storage Container user
 export TF_VAR_object_storage_user="gse-admin_ww@oracle.com"
-# todo: this needs to be manually configured before
-#Enter swift password of the user
-#export TF_VAR_object_swift_password=""
 
 #Change following fields to point to correct keys
 #Enter private SSH key's path 
@@ -35,9 +32,9 @@ export TF_VAR_ssh_public_key_path="userdata/test_ssh.pub"
 export TF_VAR_ssh_public_key=$(cat userdata/test_ssh.pub)
 export TF_VAR_ssh_authorized_private_key=$(cat userdata/test_ssh)
 
-From link "https://github.com/rioscesar/oci-environment-workshop/tree/master/environment-oci-automation/installer/OracleWebLogic/dockerfiles/12.2.1" download fmw_12.2.1.0.0_wls_Disk1_1of1.zip.download and fmw_12.2.1.0.0_wls_quick_Disk1_1of1.zip.download.
+From link "https://github.com/rioscesar/oci-environment-workshop/tree/master/environment-oci-automation/installer/OracleWebLogic/dockerfiles/12.2.1" download fmw_12.2.1.0.0_wls_Disk1_1of1.zip.download and fmw_12.2.1.0.0_wls_quick_Disk1_1of1.zip.download and insert into directory.
 
-From link "https://github.com/rioscesar/oci-environment-workshop/tree/master/environment-oci-automation/installer/OracleJava/java-8" download "server-jre-8u161-linux-x64.tar.gz"
+From link "https://github.com/rioscesar/oci-environment-workshop/tree/master/environment-oci-automation/installer/OracleJava/java-8" download "server-jre-8u161-linux-x64.tar.gz" and insert into directory.
   
 ## Missing directories:
   * userdata
