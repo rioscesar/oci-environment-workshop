@@ -1,0 +1,37 @@
+Steps to execute deployment script:
+
+Prerequisite – Configure T3 tunneling on WebLogic server. Refer attached document
+
+Login to Compute instance - 
+ssh -i ~/.ssh/test_csh ubuntu@129.213.22.44
+
+Copy .War file from local to host:
+scp -i ~/.ssh/test_csh ~/Downloads/StateGov-WebService-context-root.war  ubuntu@129.213.22.44:~/OracleWebLogic/samples/1221-domain/container-scripts
+
+Deployment Script: "deploy_state_app.py"
+
+import re
+ 
+warPath = '/u01/oracle/StateGov-WebService-context-root.war'
+appName = 'stategovapplication'
+
+weblogicUrl = '129.213.33.219:7001'
+userName = 'weblogic'
+password = 'Devops_123'
+
+connect(userName, password, weblogicUrl)
+ 
+appList = re.findall(appName, ls('/AppDeployments'))
+if len(appList) >= 1:
+    print 'undeploying application'
+    undeploy(appName)
+ 
+deploy(appName, path = warPath, retireTimeout = -1, upload = 'True')
+exit()
+
+Execute the deployment script:
+sudo docker build -t 1221-domain --build-arg ADMIN_PASSWORD=welcome1 --build-arg ADMIN_NAME=WL_AdminServer .
+
+sudo docker run -d --name wlsadmin --hostname wlsadmin -p 7001:7001 1221-domain
+
+sudo docker exec -it -u root wlsadmin wlst /u01/oracle/deploy_state_app.py
