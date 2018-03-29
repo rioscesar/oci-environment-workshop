@@ -43,6 +43,8 @@ From link "https://github.com/rioscesar/oci-environment-workshop/tree/master/env
   * Create the APIkey.pem file. 
   * Don't forget to also add your private and public ssh keys into the userdata directory.
 
+# After configuring Terraform follow the SOA steps in the Documentation.zip and then follow the Weblogic steps and deployment of second application.  
+
 ##### terraform plan -out=plan.out
 ##### terraform apply "plan.out"
 
