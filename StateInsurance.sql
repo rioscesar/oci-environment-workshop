@@ -17,10 +17,10 @@ GRANT all privileges to stateinsurance;
 
   CREATE TABLE "STATEINSURANCE"."CUSTOMER" 
    (	"INC_ID" VARCHAR2(20 BYTE), 
-	"NAME" VARCHAR2(20 BYTE), 
-	"ADDRESS" VARCHAR2(20 BYTE), 
-	"PHONE" VARCHAR2(20 BYTE), 
-	"SSN" VARCHAR2(20 BYTE)
+	"NAME" VARCHAR2(30 BYTE), 
+	"ADDRESS" VARCHAR2(30 BYTE), 
+	"PHONE" VARCHAR2(30 BYTE), 
+	"SSN" VARCHAR2(30 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
@@ -30,8 +30,8 @@ GRANT all privileges to stateinsurance;
   TABLESPACE "USERS" ;
 REM INSERTING into STATEINSURANCE.CUSTOMER
 SET DEFINE OFF;
-Insert into STATEINSURANCE.CUSTOMER (INC_ID,NAME,ADDRESS,PHONE,SSN) values ('1','cesar','7920','9999','ssss');
-Insert into STATEINSURANCE.CUSTOMER (INC_ID,NAME,ADDRESS,PHONE,SSN) values ('2','Eastern','EIP Main','string','Stuff');
+Insert into STATEINSURANCE.CUSTOMER (INC_ID,NAME,ADDRESS,PHONE,SSN) values ('1','Juan G.','123 Address St.','(123) 555-6540','987-88-1564');
+Insert into STATEINSURANCE.CUSTOMER (INC_ID,NAME,ADDRESS,PHONE,SSN) values ('2','Carlos Z.','321 EIP Main','(789) 951-6547','123-88-6548');
 --------------------------------------------------------
 --  DDL for Index CUSTOMER_PK
 --------------------------------------------------------
