@@ -18,8 +18,6 @@ variable "DBNodeDisplayName" {}
 variable "DBNodeHostName" {}
 variable "DBNodeDomainName" {}
 
-# Define existing bastion host
-variable "BastionHost" {}
 variable "HostUserName" {}
 variable "NCharacterSet" {}
 variable "CharacterSet" {}

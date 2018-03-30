@@ -20,7 +20,7 @@ variable "object_storage_user" {}
 ############################### Compute Configuration #################################
 
 variable "compute_name" {
-  default="DevOps-Instance"
+  default="LibertyInsurance-Instance"
 }
 variable "compute_label" {
   default="devops-instance"
@@ -95,7 +95,7 @@ variable "DBEdition" {
     default = "ENTERPRISE_EDITION"
 }
 variable "DBAdminPassword" {
-    default = "STateinsurance12@_"
+    default = "Devops_123"
 }
 
 # OracleDB SID 
@@ -116,10 +116,6 @@ variable "DBNodeDisplayName" {
 }
 variable "DBNodeHostName" {
     default = "myOracleDB"
-}
-# Define existing bastion host
-variable "BastionHost" {
-    default = "129.146.26.52"
 }
 variable "HostUserName" {
     default = "opc"

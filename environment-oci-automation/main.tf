@@ -56,7 +56,6 @@ module "database" {
   DBDiskRedundancy = "${var.DBDiskRedundancy}"
   DBNodeDisplayName = "${var.DBNodeDisplayName}"
   DBNodeHostName = "${var.DBNodeHostName}"
-  BastionHost = "${var.BastionHost}"
   HostUserName = "${var.HostUserName}"
   NCharacterSet = "${var.NCharacterSet}"
   CharacterSet = "${var.CharacterSet}"
@@ -101,11 +100,10 @@ output "Compute Public IP" {
   value = "${module.compute.public-ip}"
 }
 
-output "swift-pwd" {v
+output "swift-pwd" {
   value = "${module.object_storage.swift-password}"
 }
 
 output "DB Public IP" {
   value = "${module.database.DBNodePublicIP}"
-}			
-
+}
