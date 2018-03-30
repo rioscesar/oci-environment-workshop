@@ -95,7 +95,7 @@ variable "DBEdition" {
     default = "ENTERPRISE_EDITION"
 }
 variable "DBAdminPassword" {
-    default = "Devops_123"
+    default = "DevOps_123#"
 }
 
 # OracleDB SID 

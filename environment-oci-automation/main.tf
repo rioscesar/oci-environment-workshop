@@ -96,14 +96,14 @@ module "paas" {
   availability_domain = "${module.vcn.subnet3_ad}"
 }
 
-output "Compute Public IP" {
-  value = "${module.compute.public-ip}"
+output "Liberty Insurance IP" {
+  value = "${module.compute.public-ip}:7001/LibertyInsurance-WebServiceApp-context-root"
 }
 
 output "swift-pwd" {
   value = "${module.object_storage.swift-password}"
 }
 
-output "DB Public IP" {
+output "Application Database IP" {
   value = "${module.database.DBNodePublicIP}"
 }
