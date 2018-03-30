@@ -12,6 +12,9 @@ resource "null_resource" "jcs-manager" {
 }
 
 resource "null_resource" "stack-manager" {
+
+  depends_on = ["null_resource.jcs-manager", "null_resource.soa-manager"]
+
   provisioner "local-exec" {
     command = "python stackmanager.py create jcs -u ${var.user} -p ${var.password} --debug -dn ${var.domain}"
   }

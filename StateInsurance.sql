@@ -1,6 +1,6 @@
 alter session set "_ORACLE_SCRIPT"=true; 
 
-CREATE USER stateinsurance IDENTIFIED BY "Devops_123"
+CREATE USER stateinsurance IDENTIFIED BY "DevOps_123#"
 DEFAULT TABLESPACE users
 TEMPORARY TABLESPACE temp
 QUOTA UNLIMITED ON users;
