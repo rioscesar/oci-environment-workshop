@@ -21,9 +21,9 @@ import javax.jws.WebService;
 @WebService(serviceName = "State")
 public class StateGov {
     
-    String proxyIP = "129.213.62.119";
-    String dbIP = "129.213.98.89";
-    String SID = "aTFdb";
+    String proxyIP = "proxy_ip";
+    String dbIP = "db_ip";
+    String SID = "db_sid";
     DBConnection conn;
     
     public StateGov() throws FileNotFoundException, IOException {
