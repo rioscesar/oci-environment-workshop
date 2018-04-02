@@ -72,6 +72,10 @@ module "app-config" {
   compartment_ocid = "${module.compartment_policies.compartment_ocid}"
   public-ip = "${module.compute.public-ip}"
   ssh_private_key = "${var.ssh_authorized_private_key}"
+  instance_user = "${var.instance_user}"
+
+  DeployInsuranceApp = "${DeployInsuranceApp}"
+  DeployStateApp = "${DeployStateApp}"
 }
 
 module "paas" {
@@ -97,7 +101,7 @@ module "paas" {
 }
 
 output "Liberty Insurance IP" {
-  value = "${module.compute.public-ip}:7001/LibertyInsurance-WebServiceApp-context-root"
+  value = "${module.compute.public-ip}"
 }
 
 output "swift-pwd" {
@@ -106,4 +110,8 @@ output "swift-pwd" {
 
 output "Application Database IP" {
   value = "${module.database.DBNodePublicIP}"
+}
+
+output "Application Database SID" {
+  value = "${var.DBName}" 
 }

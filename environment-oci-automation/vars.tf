@@ -15,7 +15,14 @@ variable "domain" {}
 variable "tenancy" {}
 variable "object_storage_user" {}
 
-#variable "swift_password" {}
+############################### Deploy Applications #################################
+
+variable "DeployInsuranceApp" {
+  default="0"
+}
+variable "DeployStateApp" {
+  default="0"
+}
 
 ############################### Compute Configuration #################################
 
@@ -31,7 +38,9 @@ variable "instance_shape" {
 variable "image_ocid" {
   default="ocid1.image.oc1.iad.aaaaaaaaafmyat7i5s7ae3aylwtvmt7v4dw4yy2thgzaqlbjzoxngrjg54xq"
 }
-
+variable "instance_user" {
+  default="ubuntu"
+}
 variable "DBShape" {
   default="VM.Standard1.1"
 }
