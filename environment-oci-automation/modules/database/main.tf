@@ -27,3 +27,31 @@ resource "oci_database_db_system" "TFDBNode" {
   license_model = "${var.LicenseModel}"
   node_count = "${var.NodeCount}"
 }
+
+resource "null_resource" "setup" {
+  provisioner "file" {
+    connection {
+      host= "${data.oci_core_vnic.DBNodeVnic.public_ip_address}"
+      user = "opc"
+      private_key = "${var.ssh_private_key}"
+    }
+    source = "scripts/"
+    destination = "/tmp"
+  }
+}
+
+resource "null_resource" "database-config" {
+
+  provisioner "remote-exec" {
+    connection {
+      host= "${data.oci_core_vnic.DBNodeVnic.public_ip_address}"
+      user = "opc"
+      private_key = "${var.ssh_private_key}"
+    }
+    
+    inline = [
+      "chmod +x /tmp/setup_db.sh",	
+      "sudo /tmp/setup_db.sh"
+    ]
+  }
+}
