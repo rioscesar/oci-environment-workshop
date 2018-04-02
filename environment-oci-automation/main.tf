@@ -74,8 +74,8 @@ module "app-config" {
   ssh_private_key = "${var.ssh_authorized_private_key}"
   instance_user = "${var.instance_user}"
 
-  DeployInsuranceApp = "${DeployInsuranceApp}"
-  DeployStateApp = "${DeployStateApp}"
+  DeployInsuranceApp = "${var.DeployInsuranceApp}"
+  DeployStateApp = "${var.DeployStateApp}"
 }
 
 module "paas" {
