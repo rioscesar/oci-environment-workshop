@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="fontawesome-i2" <!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title> Liberty Mutual Dashboard</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+
+    <style>
+        body {
+            padding-top: 54px;
+        }
+        
+        @media (min-width: 992px) {
+            body {
+                padding-top: 56px;
+            }
+        }
+        
+        .collapsible {
+            background-color: #001F67;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+        
+        .active,
+        .collapsible:hover {
+            background-color: #001F67;
+        }
+        
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+        
+        #tsNav {
+            background-color: white;
+            color: black;
+        }
+        
+        a {
+            color: black;
+        }
+        
+        body {
+            background-image: linear-gradient(-215deg, #CAE4F6 37%, #0A5D96 100%);
+            border: 1px solid #979797;
+            /*    overflow-y: hidden;
+      */
+            height: 2000px;
+        }
+        
+        input {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: black solid 1px;
+        }
+        
+        .content {
+            background-color: white;
+        }
+        
+        #submitBtn {
+            padding: 1%;
+            border: none;
+        }
+        
+        .dashBox {
+            background: #F5BE3D;
+            border-radius: 15px;
+            text-align: center;
+            padding: 5% 0;
+        }
+        
+        #active {
+            background-color: #F5BE3D;
+        }
+        
+        #logo {
+            width: 200px
+        }
+        
+        h1 {
+            margin: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="tsNav">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="liberty.jpg" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" id="active" href="#" onclick="soap()">Dashboard
+                                <span class="sr-only">(current)</span>
+                              </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Application</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Message</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" id="pageContent">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <br>
+                <br>
+                <h1 class="mt-5">Your Dashboard </h1>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <p class="dashBox">
+                    <i>
+                    4
+                    <br> New Applications
+                </i></p>
+            </div>
+            <div class="col-md-3">
+                <p class="dashBox"> <i>
+                    15
+                    <br> Pending Applications
+                </i></p>
+            </div>
+            <div class="col-md-3">
+                <p class="dashBox"> <i>                    
+                        10
+                        <br> Rejected Application
+                    </i> </p>
+            </div>
+            <div class="col-md-3">
+                <p class="dashBox"><i>
+                    30
+                    <br> Pending Messages
+                </i> </p>
+            </div>
+
+
+        </div>
+        <div class="container" style="margin-top: 3%;">
+
+
+            <button class="collapsible" id="insuredName"><b> <svg class="svg-inline--fa fa-minus-square fa-w-14" aria-hidden="true" data-prefix="far" data-icon="minus-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M108 284c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v32c0 6.6-5.4 12-12 12H108zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"></path></svg><!-- <i class="far fa-minus-square"></i> --> &nbsp; &nbsp; </b></button>
+            <div class="content">
+                <br>
+                <div>
+                    <!--      <label for="example-text-input" class="col-2 col-form-label">Text</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+                                </div> -->
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p style="text-align: left; ">
+                                <div id="leftColumn"></div>
+                                <!--     2300 Cloud Way
+                                <br> Austin, TX 78704 -->
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p style="text-align: left; ">
+                            <div id="middleColumn"></div>
+
+                                <!-- (555)555-5555 -->
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p style="text-align: left; ">
+                       <div id="rightColumn"></div>
+
+                                <!--     000-00-0000
+                                <br> Type: Health Insurance -->
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--    <div class="row">
+                                    <p style="text-align: left; ">
+                                        Address <input type="text" name="input" size=35 maxlength=50 value="" id="inputField" style="margin-left: 5%">
+                                    </p>
+                                </div>-->
+
+
+                </div>
+                <br>
+                <br>
+            </div>
+            <!-- <button class="collapsible"><b><svg class="svg-inline--fa fa-minus-square fa-w-14" aria-hidden="true" data-prefix="far" data-icon="minus-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M108 284c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v32c0 6.6-5.4 12-12 12H108zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"></path></svg><!-- <i class="far fa-minus-square"></i> &nbsp; &nbsp; Joe Finley</b></button>
+            <div class="content">
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            2300 Cloud Way
+                            <br> Austin, TX 78704
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            (555)555-5555
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            000-00-0000
+                            <br> Type: Health Insurance
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+            <button class="collapsible"><b><svg class="svg-inline--fa fa-minus-square fa-w-14" aria-hidden="true" data-prefix="far" data-icon="minus-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M108 284c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v32c0 6.6-5.4 12-12 12H108zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"></path></svg><!-- <i class="far fa-minus-square"></i>  &nbsp; &nbsp; Theodore Pohts</b></button>
+            <div class="content">
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            2300 Cloud Way
+                            <br> Austin, TX 78704
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            (555)555-5555
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            000-00-0000
+                            <br> Type: Health Insurance
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+            <button class="collapsible"><b><svg class="svg-inline--fa fa-minus-square fa-w-14" aria-hidden="true" data-prefix="far" data-icon="minus-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M108 284c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v32c0 6.6-5.4 12-12 12H108zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"></path></svg><!-- <i class="far fa-minus-square"></i> &nbsp; &nbsp;Jane Smith </b></button>
+            <div class="content">
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            2300 Cloud Way
+                            <br> Austin, TX 78704
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            (555)555-5555
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p style="text-align: left; ">
+                            000-00-0000
+                            <br> Type: Health Insurance
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div> -->
+        </div>
+
+
+
+    </div>
+
+
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="resources/js/data.js"></script>
+    <script src="resources/js/config.json"></script>
+
+    <body>
+
+</html>

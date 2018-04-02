@@ -23,6 +23,9 @@ variable "DeployInsuranceApp" {
 variable "DeployStateApp" {
   default="0"
 }
+variable "StateIP" {
+  default="localhost"
+} 
 
 ############################### Compute Configuration #################################
 
@@ -98,7 +101,7 @@ variable "DBNodeShape" {
     default = "VM.Standard1.1"
 }
 variable "CPUCoreCount" {
-    default = "1"
+    default = "2"
 }
 variable "DBEdition" {
     default = "ENTERPRISE_EDITION"

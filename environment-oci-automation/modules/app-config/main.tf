@@ -106,7 +106,7 @@ resource "null_resource" "state-config" {
 
     inline = [
       "sudo docker cp /tmp/StateGov-WebService-context-root.war wlsadmin:/u01/oracle/",
-      "sudo docker exec -it -u root wlsadmin wlst /u01/oracle/deploy_state_app.py"
+      "sudo docker exec -it -u root wlsadmin wlst /u01/oracle/deploy_state_app.py ${var.StateIP}"
     ]
   }
 }

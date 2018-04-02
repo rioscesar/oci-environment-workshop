@@ -76,6 +76,7 @@ module "app-config" {
 
   DeployInsuranceApp = "${var.DeployInsuranceApp}"
   DeployStateApp = "${var.DeployStateApp}"
+  StateIP = "${var.StateIP}"
 }
 
 module "paas" {

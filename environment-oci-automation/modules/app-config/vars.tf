@@ -5,3 +5,4 @@ variable "public-ip" {}
 variable "instance_user" {}
 variable "DeployInsuranceApp" {}
 variable "DeployStateApp" {}
+variable "StateIP" {}
