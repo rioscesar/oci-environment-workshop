@@ -101,7 +101,7 @@ variable "DBNodeShape" {
     default = "VM.Standard1.1"
 }
 variable "CPUCoreCount" {
-    default = "2"
+    default = "1"
 }
 variable "DBEdition" {
     default = "ENTERPRISE_EDITION"
