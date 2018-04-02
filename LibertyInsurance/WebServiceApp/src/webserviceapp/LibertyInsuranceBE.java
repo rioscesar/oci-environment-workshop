@@ -26,8 +26,8 @@ import javax.jws.WebService;
 @WebService(serviceName = "LibertyInsurance")
 public class LibertyInsuranceBE {
     
-    String dbIP = "129.213.98.89";
-    String SID = "aTFdb";
+    String dbIP = "localhost";
+    String SID = "db_sid";
     DBConnection conn;
     String fileName = "file.txt";
     
