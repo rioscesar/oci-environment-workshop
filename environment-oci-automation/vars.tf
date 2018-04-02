@@ -18,13 +18,13 @@ variable "object_storage_user" {}
 ############################### Deploy Applications #################################
 
 variable "DeployInsuranceApp" {
-  default="0"
+  default="1"
 }
 variable "DeployStateApp" {
-  default="0"
+  default="1"
 }
 variable "StateIP" {
-  default="localhost"
+  default="129.213.118.233"
 } 
 
 ############################### Compute Configuration #################################

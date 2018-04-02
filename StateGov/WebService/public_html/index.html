@@ -536,7 +536,7 @@
         </div>
     </div>
 </div>
-
+<script src="resources/js/config.json"></script>
 <script>
     var coll = document.getElementsByClassName("collapsible");
     var i;
@@ -558,10 +558,10 @@
         var address = form.address.value;
         var ssn = form.ssn.value;
         var phone = form.phone.value;
-        
+        var data = JSON.parse(config);
+
         var xmlhttp = new XMLHttpRequest();
-        //129.213.33.219
-        xmlhttp.open('POST', 'http://129.213.108.222:7001/StateGov-WebService-context-root/HelloWorldPort?wsdl', true);
+        xmlhttp.open('POST', 'http://'+data.compute_ip+':7001/StateGov-WebService-context-root/HelloWorldPort?wsdl', true);
 
         // build SOAP request
         var sr =

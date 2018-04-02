@@ -4,7 +4,7 @@ import sys
 warPath = '/u01/oracle/StateGov-WebService-context-root.war'
 appName = 'StateApp'
 
-weblogicUrl = sys.argv[0]+':7001'
+weblogicUrl = sys.argv[1]+':7001'
 userName = 'weblogic'
 password = 'Devops_123'
 

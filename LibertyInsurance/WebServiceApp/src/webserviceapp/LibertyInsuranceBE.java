@@ -37,7 +37,7 @@ public class LibertyInsuranceBE {
     
     @WebMethod(operationName = "submit")
     public void helloWorld(@WebParam(name = "arg0") String s0, @WebParam(name = "arg1") String s1, 
-                           @WebParam(name = "arg2") String s2, @WebParam(name = "arg3") String s3) throws IOException, SQLException{
+                           @WebParam(name = "arg2") String s2, @WebParam(name = "arg3") String s3) throws IOException, SQLException {
         
         conn.insertRecord(s0, s1, s2, s3);
         
@@ -49,19 +49,19 @@ public class LibertyInsuranceBE {
     }
     
     @WebMethod(operationName = "getFromFile")
-    public ArrayList getFile() throws IOException{
+    public ArrayList getFile() throws IOException {
         // read contents of file and return what's inside
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
         return new ArrayList<String>(Arrays.asList(reader.readLine().split(","))); 
     }
     
     @WebMethod(operationName = "getFromDB")
-    public ArrayList getDB() throws SQLException{
+    public ArrayList getDB() throws SQLException {
         return conn.selectAll();
     }
     
     @WebMethod(operationName = "testMethod")
-    public String testMethod() throws IOException{
+    public String testMethod() throws IOException {
         return "Hello World!"; 
     }
 }

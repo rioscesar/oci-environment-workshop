@@ -7,10 +7,9 @@ function showInsured(getInsuredDetails) {
 }
 
 function soap() {
-//    var data = JSON.parse(config);
-//129.213.85.155
+    var data = JSON.parse(config);
     var xmlhttp = new XMLHttpRequest();  
-    xmlhttp.open('POST', 'http://129.213.85.155:7001/LibertyInsurance-WebServiceApp-context-root/HelloWorldAppPort?wsdl', true);
+    xmlhttp.open('POST', 'http://'+data.compute_ip+':7001/LibertyInsurance-WebServiceApp-context-root/HelloWorldAppPort?wsdl', true);
 
     // build SOAP request
     var sr =

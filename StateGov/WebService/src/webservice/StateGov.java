@@ -21,9 +21,9 @@ import javax.jws.WebService;
 @WebService(serviceName = "State")
 public class StateGov {
     
-    String proxyIP = "localhost";
-    String dbIP = "";
-    String SID = "";
+    String proxyIP = "129.213.62.119";
+    String dbIP = "129.213.98.89";
+    String SID = "aTFdb";
     DBConnection conn;
     
     public StateGov() throws FileNotFoundException, IOException {
@@ -41,7 +41,7 @@ public class StateGov {
     }
     
     @WebMethod(operationName = "getFromDB")
-    public ArrayList getDB() throws SQLException{
+    public ArrayList getDB() throws SQLException {
         return conn.selectAll();
     }
     
