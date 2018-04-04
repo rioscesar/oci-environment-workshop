@@ -5,6 +5,7 @@
 ### Modify the env.sh file to match your configurations to point to your cloud environment. This is a file you will add and run after doing `terraform init`. Run it as a regular shell script. `. env.sh` 
 ```
 ###################### Environment Setup  ####################################
+
 #Enter Your Tenancy OCID
 export TF_VAR_tenancy_ocid="ocid1.tenancy.oc1..xxxxxxxxxx"
 #Enter Your User OCID
