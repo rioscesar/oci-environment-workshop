@@ -64,6 +64,7 @@ module "database" {
   DataStorageSizeInGB = "${var.DataStorageSizeInGB}"
   LicenseModel = "${var.LicenseModel}"
   NodeCount = "${var.NodeCount}"
+  ssh_private_key = "${var.ssh_authorized_private_key}"
 }
  
 module "app-config" {
