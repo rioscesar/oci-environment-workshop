@@ -138,7 +138,11 @@ This is the first of several labs that are part of the **Oracle Public Cloud Int
         - tenancy
         - object_storage_user
 
-![](images/Env-Sh.png)
+    ![](images/Env-Sh.png)
+
+    - Add `userdata` directory
+
+    ![](images/Userdata.png)
 
 - **IMPORTANT** - Instructor should have provided you with all the necessary information. If you are missing anything contact your instructor. 
 
