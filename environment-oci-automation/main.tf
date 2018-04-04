@@ -106,7 +106,7 @@ output "Liberty Insurance IP" {
   value = "${module.compute.public-ip}"
 }
 
-output "swift-pwd" {
+output "Swift Password" {
   value = "${module.object_storage.swift-password}"
 }
 
