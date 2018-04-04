@@ -5,6 +5,7 @@ environment-oci-automation/env.sh
 .terraform/
 *.tfstate
 *.backup
+*.json
 environment-oci-automation/installer/OracleJava/java-8/server-jre-8u161-linux-x64.tar.gz
 environment-oci-automation/installer/OracleWebLogic/dockerfiles/12.2.1/fmw_12.2.1.0.0_wls_quick_Disk1_1of1.zip
 environment-oci-automation/installer/OracleWebLogic/dockerfiles/12.2.1/fmw_12.2.1.0.0_wls_supplemental_quick_Disk1_1of1.zip
