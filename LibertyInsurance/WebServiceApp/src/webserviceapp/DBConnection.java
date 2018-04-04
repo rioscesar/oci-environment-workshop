@@ -39,16 +39,11 @@ public class DBConnection {
         calendar.add(Calendar.DAY_OF_YEAR, noOfDays);
         Date date = calendar.getTime();
         
-        System.out.println(";lkadsjfl;kadsjflk;adsjf");
-        System.out.println(date);
-        
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
         
         String insertTableSQL = "INSERT INTO insurance (policy, name, address, phone, ssn, company, exp) VALUES ("
                 + "?, ?, ?, ?, ?, ?, ?)";
                                 
-        
-        System.out.println(insertTableSQL);
 
         try {
             dbConnection = getDBConnection();
