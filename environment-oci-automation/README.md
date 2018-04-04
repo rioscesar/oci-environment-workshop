@@ -6,6 +6,7 @@
 
 ```
 ###################### Environment Setup  ####################################
+
 #Enter Your Tenancy OCID
 export TF_VAR_tenancy_ocid="ocid1.tenancy.oc1..xxxxxxxxxx"
 #Enter Your User OCID
