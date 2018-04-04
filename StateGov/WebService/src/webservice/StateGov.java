@@ -23,7 +23,7 @@ public class StateGov {
     
     String proxyIP = "proxy_ip";
     String dbIP = "db_ip";
-    String SID = "db_sid";
+    String SID = "aTFdb";
     DBConnection conn;
     
     public StateGov() throws FileNotFoundException, IOException {

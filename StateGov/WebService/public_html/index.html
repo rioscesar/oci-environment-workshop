@@ -558,10 +558,11 @@
         var address = form.address.value;
         var ssn = form.ssn.value;
         var phone = form.phone.value;
-        var data = JSON.parse(config);
+        
+        var data = 'localhost';
 
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('POST', 'http://'+data.compute_ip+':7001/StateGov-WebService-context-root/HelloWorldPort?wsdl', true);
+        xmlhttp.open('POST', 'http://'+data+'/StateGov-WebService-context-root/HelloWorldPort?wsdl', true);
 
         // build SOAP request
         var sr =

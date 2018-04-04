@@ -2,6 +2,7 @@ package webservice;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,24 +25,27 @@ public class DBConnection {
     public void insertRecord(String v0, String v1, String v2, String v3) throws SQLException {
 
         Connection dbConnection = null;
-        Statement statement = null;
+        PreparedStatement statement = null;
         Random rand = new Random();
         int  n = rand.nextInt(Big_Number) + 1;
         
         System.out.println("before sql statement");
 
-        String insertTableSQL = "INSERT INTO customer "
-                + "(inc_id, name, address, phone, ssn) " + "VALUES "
-                + "("+n+", '"+v0+"', '"+v1+"', '"+v2+"', '"+v3+"')";
+        String insertTableSQL = "INSERT INTO state (name, address, phone, ssn) VALUES (" +
+                "?, ?, ?, ?)";
         
         System.out.println(insertTableSQL);
 
         try {
             dbConnection = getDBConnection();
-            statement = dbConnection.createStatement();
-
+            statement = dbConnection.prepareStatement(insertTableSQL);
+            statement.setString(1, v0);
+            statement.setString(2, v1);
+            statement.setString(3, v2);
+            statement.setString(4, v3);
+            
             // execute insert SQL stetement
-            statement.executeUpdate(insertTableSQL);
+            statement.executeUpdate();
 
             System.out.println("Record is inserted into table!");
 
@@ -68,7 +72,7 @@ public class DBConnection {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String selectSQL = "SELECT * FROM customer";
+        String selectSQL = "SELECT * FROM state";
         
         System.out.println(selectSQL);
 
@@ -82,7 +86,6 @@ public class DBConnection {
             
             ArrayList<String> customers = new ArrayList<String>(); 
             while (rs.next()) {
-                String id = rs.getString("INC_ID");
                 String name = rs.getString("NAME");
                 String address = rs.getString("ADDRESS");
                 String phone = rs.getString("PHONE");
@@ -142,19 +145,19 @@ public class DBConnection {
     }
     
     // Test Main
-    //    public static void main(String[] argv) {
-    //
-    //        try {
-    //
-    //            insertRecord("hello2", "heya", "pppp", ";lkj");
-    ////            System.out.println(selectAll());
-    //
-    //        } catch (SQLException e) {
-    //
-    //            System.out.println(e.getMessage());
-    //
-    //        }
-    //
-    //    }
+//        public static void main(String[] argv) {
+//    
+//            try {
+//    
+//                insertRecord("hello2", "heya", "pppp", ";lkj");
+//                System.out.println(selectAll());
+//    
+//            } catch (SQLException e) {
+//    
+//                System.out.println(e.getMessage());
+//    
+//            }
+//    
+//        }
 
 }

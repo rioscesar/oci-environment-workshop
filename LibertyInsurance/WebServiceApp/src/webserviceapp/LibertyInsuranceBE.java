@@ -27,7 +27,7 @@ import javax.jws.WebService;
 public class LibertyInsuranceBE {
     
     String dbIP = "db_ip";
-    String SID = "db_sid";
+    String SID = "aTFdb";
     DBConnection conn;
     String fileName = "file.txt";
     
