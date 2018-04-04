@@ -4,25 +4,27 @@
 
 ### Modify the env.sh file to match your configurations to point to your cloud environment. This is a file you will add and run after doing `terraform init`. Run it as a regular shell script. `. env.sh` 
 ```
+###################### Environment Setup  ####################################
+
 #Enter Your Tenancy OCID
-export TF_VAR_tenancy_ocid=""
+export TF_VAR_tenancy_ocid="ocid1.tenancy.oc1..xxxxxxxxxx"
 #Enter Your User OCID
-export TF_VAR_user_ocid=""
+export TF_VAR_user_ocid="ocid1.user.oc1..xxxxxxx"
 #Enter Your Fingerprint
-export TF_VAR_fingerprint=""
+export TF_VAR_fingerprint="fb:93:b0:6c:ac:f2:42:xxxxxxx"
 #Enter Your Region
 export TF_VAR_region="us-ashburn-1"
 
 #Enter Your Username
-export TF_VAR_user=""
+export TF_VAR_user="cloud.admin"
 #Enter Your Password 
-export TF_VAR_password="
+export TF_VAR_password="XXXX@0XXXX"
 #Enter the IDCS ID of your domain
-export TF_VAR_domain="idcs-d0b3ef5f88954f9fb37302f2149xxx"
+export TF_VAR_domain="idcs-xxxxxx"
 #Enter Identity Domain tenancy name
-export TF_VAR_tenancy="gse00013xxx"
+export TF_VAR_tenancy="gsexxxx"
 #Enter Object Storage Container user
-export TF_VAR_object_storage_user="admin@oracle.com"
+export TF_VAR_object_storage_user="gse-adminxxx@xxx.com"
 
 #Change following fields to point to correct keys
 #Enter private SSH key's path 
