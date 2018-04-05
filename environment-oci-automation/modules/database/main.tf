@@ -36,7 +36,7 @@ resource "null_resource" "setup" {
       private_key = "${var.ssh_private_key}"
     }
     source = "scripts/"
-    destination = "/tmp"
+    destination = "/tmp/"
   }
 }
 
