@@ -6,7 +6,7 @@ appName = 'StateApp'
 
 weblogicUrl = sys.argv[1]+':7001'
 userName = 'weblogic'
-password = 'Devops_123'
+password = 'DevOps_123#'
 
 connect(userName, password, weblogicUrl)
  
