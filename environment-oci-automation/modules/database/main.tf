@@ -41,7 +41,8 @@ resource "null_resource" "setup" {
 }
 
 resource "null_resource" "database-config" {
-
+  depends_on = ["null_resource.setup"]
+  
   provisioner "remote-exec" {
     connection {
       host= "${data.oci_core_vnic.DBNodeVnic.public_ip_address}"
