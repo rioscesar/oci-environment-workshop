@@ -4,6 +4,7 @@ warPath = '/u01/oracle/LibertyInsurance-WebServiceApp-context-root.war'
 appName = 'LibertyApp'
 
 weblogicUrl = 't3://172.17.0.2:7001'
+# todo: add username and password to be arguements
 userName = 'weblogic'
 password = 'welcome1'
 
